@@ -25,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/david1602/apiwerk/issues"
   },
-  "homepage": "https://github.com/david1602/apiwerk#readme"
+  "homepage": "https://github.com/david1602/apiwerk#readme",
+  "dependencies": {
+    "glob-promise": "^3.1.0",
+    "yargs": "^8.0.2"
+  }
 }
