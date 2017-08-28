@@ -30,6 +30,7 @@
     "debug": "^3.0.1",
     "glob": "^7.1.2",
     "glob-promise": "^3.1.0",
+    "inquirer": "^3.2.2",
     "seamless-immutable": "^7.1.2",
     "yargs": "^8.0.2"
   }
