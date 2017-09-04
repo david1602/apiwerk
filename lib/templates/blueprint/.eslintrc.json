@@ -1,0 +1,19 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "sourceType": "module"
+    },
+    "env": {
+        "node": true,
+        "browser": true
+    },
+    "globals": {
+        "__DEV__": false
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "prefer-const": "error",
+        "no-var": "error",
+        "no-console": "off"
+    }
+}

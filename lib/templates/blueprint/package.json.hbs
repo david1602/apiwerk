@@ -1,0 +1,25 @@
+{
+  "name": "{{name}}",
+  "version": "{{version}}",
+  "description": "{{description}}",
+  "main": "index.js",
+  "repository": "{{repository}}",
+  "author": "{{author}}",
+  "license": "{{license}}",
+  "dependencies": {
+    {{packageList packages}}
+  },
+  "scripts": {
+    "start": "better-npm-run start",
+    "lint": "eslint src",
+    "prettier": "prettier --single-quote --tab-width 4 --write src/**/*.js"
+  },
+  "betterScripts": {
+    "start": {
+      "command": "nodemon index",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  }
+}

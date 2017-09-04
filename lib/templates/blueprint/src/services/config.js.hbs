@@ -1,0 +1,17 @@
+/**
+ * Configuration service
+ *
+ * Provides access to the configuration.
+ */
+const Immutable = require('seamless-immutable');
+
+const { NODE_ENV: env = {} } = process.env;
+
+module.exports = Immutable({
+    port: env.EP_PORT || 3000,
+    host: env.EP_HOST || '0.0.0.0',
+    {{#if configuration.redis}}redis: env.EP_REDIS_URL ||' {{configuration.redis}}',{{/if}}
+    {{#if configuration.mongodb}}mongodb: env.EP_REDIS_URL || '{{configuration.mongodb}}'{{/if}}
+    {{#if configuration.postgres}}postgres: env.EP_POSTGRES_URL || '{{configuration.postgres}}',
+    pgPromiseOptions: void 0{{/if}}
+});
