@@ -1,0 +1,40 @@
+/**
+ * Route handler for {{base}}
+ */
+const { validateRequest } = require('../services/validation');
+
+{{#if get_col}}const getAll = async function(req, res) {
+    return res.status(418).end();
+};{{/if}}
+
+{{#if get_res}}const getSingle = async function(req, res) {
+    return res.status(418).end();
+};{{/if}}
+
+{{#if post_col}}const createSpec = {
+    // Fields to be validated
+};
+
+const createNew = async function(req, res) {
+    return res.status(418).end();
+};{{/if}}
+
+{{#if put_res}}const updateSpec = {
+    // Fields to be validated
+};
+
+const updateExisting = async function(req, res) {
+    return res.status(418).end();
+};{{/if}}
+
+{{#if del_res}}const deleteExisting = async function(req, res) {
+    return res.status(418).end();
+};{{/if}}
+
+module.exports = function(server) {
+    {{#if get_col}}server.get('{{url}}', getAll);{{/if}}
+    {{#if get_res}}server.get('{{url}}/:id', getSingle);{{/if}}
+    {{#if get_res}}server.delete('{{url}}/:id', deleteExisting);{{/if}}
+    {{#if post_col}}server.post('{{url}}', validateRequest(createSpec), createNew);{{/if}}
+    {{#if put_res}}server.put('{{url}}/:id', validateRequest(updateSpec), updateExisting);{{/if}}
+};
