@@ -12,7 +12,8 @@
   "scripts": {
     "start": "better-npm-run start",
     "lint": "eslint src",
-    "prettier": "prettier --single-quote --tab-width 4 --write src/**/*.js"
+    "prettier": "prettier --single-quote --tab-width 4 --write src/**/*.js",
+    "test": "ava"
   },
   "betterScripts": {
     "start": {
@@ -21,5 +22,11 @@
         "NODE_ENV": "development"
       }
     }
+  },
+  "ava": {
+    "files": [ "src/**/*.test.js" ],
+    "failFast": true,
+    "failWithoutAssertions": true,
+    "require": "./evilGlobalVariables"
   }
 }
