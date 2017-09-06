@@ -13,7 +13,11 @@
     "start": "better-npm-run start",
     "lint": "eslint src",
     "prettier": "prettier --single-quote --tab-width 4 --write src/**/*.js",
-    "test": "ava"
+    "test": "ava"{{#if configuration.postgres}},
+    "pg:migrate": "node database/postgres/db.js migrate",
+    "pg:seed": "node database/postgres/db.js seed",
+    "pg:migrateAndSeed": "node database/postgres/db.js full"
+    {{/if}}
   },
   "betterScripts": {
     "start": {
