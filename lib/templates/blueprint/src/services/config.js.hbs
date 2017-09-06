@@ -13,5 +13,6 @@ module.exports = Immutable({
     {{#if configuration.redis}}redis: env.EP_REDIS_URL ||' {{configuration.redis}}',{{/if}}
     {{#if configuration.mongodb}}mongodb: env.EP_REDIS_URL || '{{configuration.mongodb}}'{{/if}}
     {{#if configuration.postgres}}postgres: env.EP_POSTGRES_URL || '{{configuration.postgres}}',
-    pgPromiseOptions: void 0{{/if}}
+    pgPromiseOptions: void 0,
+    csvPath: '/app/database/postgres/data'{{/if}}
 });
