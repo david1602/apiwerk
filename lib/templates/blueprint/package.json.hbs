@@ -11,8 +11,9 @@
   },
   "scripts": {
     "start": "better-npm-run start",
+    "start:production": "better-npm-run production",
     "lint": "eslint src",
-    "prettier": "prettier --single-quote --tab-width 4 --write src/**/*.js",
+    "prettier": "prettier --config .prettierrc --write src/**/*.js",
     "test": "ava"{{#if configuration.postgres}},
     "pg:migrate": "node database/postgres/db.js migrate",
     "pg:seed": "node database/postgres/db.js seed",
@@ -25,6 +26,12 @@
       "env": {
         "NODE_ENV": "development"
       }
+    },
+    "production": {
+        "command": "node index",
+        "env": {
+            "NODE_ENV": "production"
+        }
     }
   },
   "ava": {
