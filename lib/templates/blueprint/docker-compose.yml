@@ -1,0 +1,47 @@
+version: '3'
+services:
+    {{#if configuration.postgres}}
+    # Postgres database
+    postgres:
+        build:
+            context: ./postgres
+            args:
+                DBUSER: {{urlProp configuration.postgres 'username'}}
+                DBPASS: {{urlProp configuration.postgres 'password'}}
+                DBNAME: {{databaseNameFromUrl configuration.postgres}}
+        networks:
+            - application-network
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./postgres/data:/var/lib/postgresql
+            - ./database/postgres/data:/data
+        hostname: {{urlProp configuration.postgres 'hostname'}}
+    {{/if}}
+
+    {{#if configuration.redis}}
+    # Redis database
+    redis:
+        image: 'redis:alpine'
+        networks:
+            - application-network
+        hostname: {{urlProp configuration.redis 'hostname'}}
+    {{/if}}
+
+    api:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        networks:
+            - application-network
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./api:/app
+        hostname: api
+        depends_on:{{#if configuration.postgres}}
+            - postgres{{/if}}{{#if configuration.redis}}
+            - redis{{/if}}
+
+networks:
+    application-network:
