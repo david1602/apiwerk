@@ -28,7 +28,7 @@
   "homepage": "https://github.com/david1602/apiwerk#readme",
   "dependencies": {
     "compose-await": "^1.0.0",
-    "debug": "^3.0.1",
+    "debug": "^3.1.0",
     "fs-extra": "^4.0.1",
     "glob": "^7.1.2",
     "glob-promise": "^3.1.0",
