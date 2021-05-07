@@ -32,7 +32,7 @@
     "fs-extra": "^4.0.1",
     "glob": "^7.1.2",
     "glob-promise": "^3.1.0",
-    "handlebars": "^4.3.0",
+    "handlebars": "^4.7.7",
     "inquirer": "^3.2.2",
     "latest-version": "^3.1.0",
     "lodash.camelcase": "^4.3.0",
